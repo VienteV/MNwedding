@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSVP</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<form method="post" action="/">
+    <label for="name">Ваше имя:</label>
+    <input type="text" id="name" name="name" required>
+    <label for="attending">Вы придёте?</label>
+    <select id="attending" name="attending" required>
+        <option value="yes">Да</option>
+        <option value="no">Нет</option></select>
+    <label for="message">Какое-нибудь дополнительное сообщение:</label>
+    <input type="text" id="message" name="message">
+
+    <button type="submit">Send</button>
+</form>
+</body>
+</html>

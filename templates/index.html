@@ -1,0 +1,393 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Weeding</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png"> -->
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/themify-icons.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/nice-select.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/flaticon.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/flaticon.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='ccss/gijgo.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/slicknav.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+
+    <!-- slider_area -->
+    <div class="slider_area ">
+        <div class="slider_area_inner slider_bg_1 overlay2">
+            <div class="slider_text text-center">
+                <div class="text_inner">
+                    <img src="{{ url_for('static', filename='img/banner/ornaments.png') }}" alt="">
+                    <h4>22 Мая 2025</h4>
+                    <h3>Анастасия & Максим <br>
+                        Приглашение  <br>
+                    На<br>
+                    Свадьбу</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ slider_area -->
+
+    <!-- wedding_countdown -->
+    <div class="weeding_countdown_area">
+        <div class="flowaers_top d-none d-lg-block">
+            <img src="{{ url_for('static', filename='img/banner/flower-top.png') }}" alt="">
+        </div>
+        <div class="flowaers_bottom d-none d-lg-block">
+                <img src="{{ url_for('static', filename='img/banner/flower-bottom.png') }}" alt="">
+            </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="section_title text-center">
+                        <img src="{{ url_for('static', filename='img/banner/flowers.png') }}" alt="">
+                        <span>22 Мая 2025</span>
+                        <h3>Обратный отсчет</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div id="clock" class="countdown_area counter_bg ">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ wedding_countdown -->
+
+    <!-- attend_area -->
+    <div class="attending_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-10 offset-xl-1 col-lg-10 offset-lg-1">
+                    <div class="main_attending_area">
+                        <div class="flower_1 d-none d-lg-block">
+                            <img src="img/appointment/flower-top.png" alt="">
+                        </div>
+                        <div class="flower_2 d-none d-lg-block">
+                            <img src="img/appointment/flower-bottom.png" alt="">
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-xl-7 col-lg-8">
+                                <div class="popup_box ">
+                                    <div class="popup_inner">
+                                        <div class="form_heading text-center">
+                                            <h3>Скажите "Да" нашему празднику</h3>
+                                            <p>Пожалуйста, дайте нам знать до первого мая.</p>
+                                                            {% with messages = get_flashed_messages(with_categories=true) %}
+                                                             {% if messages %}
+                                                            {% for category, message in messages %}
+                                                            <div class="alert alert-{{ category }}">{{ message }}</div>
+                                                            {% endfor %}
+                                                            {% endif %}
+                                                            {% endwith %}
+                                        </div>
+                                        <form method="post" action="/">
+                                            <div class="row">
+                                                <div class="col-xl-12">
+                                                    <input type="text" name="name" placeholder="Имена гостей">
+                                                </div>
+                                                <div class="col-xl-12">
+                                                    <input type="text" name="email" placeholder="Email">
+                                                </div>
+                                                <div class="col-xl-12">
+                                                    <textarea placeholder="Напишите если у вас есть какие пожелания, аллергии и тому подобное" name="message"></textarea>
+                                                </div>
+                                                <div class="col-xl-12">
+                                                    <button type="submit" class="boxed_btn3">Отправить</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- / attend_area -->
+
+    <!-- our_love-story -->
+    <div class="love_story_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="section_title text-center">
+                        <img src="{{ url_for('static', filename='img/banner/flowers.png') }}" alt="">
+                        <h2>Our. Love. Story</h2>
+                    </div>
+                            <p>Когда-то всё началось с простого вечера покера. Антон, друг Максима и брат Насти, позвал его сыграть в карты. Тогда Настя только переехала в Санкт-Петербург, чтобы учиться в университете, и жила у брата. Максим знал о существовании Насти — Антон часто упоминал сестру, но даже представить не мог, что эта встреча станет началом чего-то особенного.
+                                Сначала они стали друзьями. Полгода смеха, разговоров и поддержки — так они узнавали друг друга, даже не подозревая, что вскоре всё изменится. А потом пришло осознание: то, что они чувствуют, — это не просто дружба. Это любовь, которая росла постепенно, но оказалась такой сильной, что её уже нельзя было игнорировать.
+                                Четыре года вместе — это не только романтика, но и переезды, ремонты, испытания, которые они прошли рука об руку. И каждый день доказывал, что их выбор был правильным.
+                                Теперь мы хотим, чтобы вы стали частью нашего счастья! Мы приглашаем вас отпраздновать наш самый важный день — день, когда мы станем мужем и женой. Давайте вместе напишем новую главу нашей истории, полную любви, радости и тепла.
+                                С нетерпением ждём вас на нашей свадьбе!
+                                Максим и Настя.</p>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <!--/ our_love-story -->
+
+    <!-- gallery_area  -->
+    <div class="gallery_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="section_title text-center">
+                        <img src="img/banner/flowers.png" alt="">
+                        <h3>Gallery.  Photos</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid p-0">
+            <div class="row grid no-gutters">
+                <div class="col-xl-4 col-md-6 col-lg-6 grid-item">
+                    <div class="single_gallery gallery_imag_1">
+                        <a class="popup-image" href="{{ url_for('static', filename='img/gallery/1.jpg')}}">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 col-lg-6 grid-item">
+                    <div class="single_gallery gallery_imag_2">
+                        <a class="popup-image" href="{{ url_for('static', filename='img/gallery/2.jpg')}}">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-5 col-md-6 col-lg-6 grid-item">
+                    <div class="single_gallery gallery_imag_3">
+                        <a class="popup-image" href="{{ url_for('static', filename='img/gallery/3.jpg')}}">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 col-lg-6 grid-item">
+                    <div class="single_gallery gallery_imag_4">
+                        <a class="popup-image" href="{{ url_for('static', filename='img/gallery/4.jpg')}}">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-5 col-md-6 col-lg-6 grid-item">
+                    <div class="single_gallery gallery_imag_5">
+                        <a class="popup-image" href="{{ url_for('static', filename='img/gallery/5.jpg')}}">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6 col-lg-6 grid-item">
+                    <div class="single_gallery gallery_imag_6">
+                        <a class="popup-image" href="{{ url_for('static', filename='img/gallery/6.jpg')}}">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6 col-lg-6 grid-item">
+                    <div class="single_gallery gallery_imag_7">
+                        <a class="popup-image" href="{{ url_for('static', filename='img/gallery/7.jpg')}}">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 col-lg-6 grid-item">
+                    <div class="single_gallery gallery_imag_8">
+                        <a class="popup-image" href="{{ url_for('static', filename='img/gallery/8.jpg')}}">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-5 col-md-6 col-lg-6 grid-item">
+                    <div class="single_gallery gallery_imag_9">
+                        <a class="popup-image" href="{{ url_for('static', filename='img/gallery/9.jpg')}}"></a>
+                    </div>
+                </div>
+            </div>
+
+        
+        
+        </div>
+    </div>
+    <!--/ gallery_area  -->
+
+    <!-- program_details -->
+    <div class="program_details_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="section_title text-center">
+                        <img src="img/banner/flowers.png" alt="">
+                        <h3>Наш день в деталях</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-4 col-lg-4">
+                    <div class="single_program program_bg_1 text-center">
+                        <div class="program_inner ">
+                            <span>
+                                12.40
+                            </span>
+                            <h3>Свадебная церемония</h3>
+                            <p>Дворец бракосочетания № 1. Мы будем рады видеть вас на церемонии, однако банкет начнётся через 2 часа. Если вы захотите присоединиться к нам раньше, мы будем искренне рады, но, пожалуйста, учтите, что эти два часа вам предстоит провести самостоятельно. 😊</p>
+
+                            <img src="img/program_details/ornaments.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4">
+                    <div class="single_program program_bg_2 text-center">
+                        <div class="program_inner ">
+                            <span>
+                                16.00
+                            </span>
+                            <h3>Lunch Time</h3>
+                            <p>Эвент Руф.<br>
+                                наб. реки Фонтанки, 59, Санкт-Петербург<br>
+                                Банкетный зал, расположенный на крыше здания,
+                                с прекрасным видом на реку Фонтанку
+                            </p>
+
+                            <img src="img/program_details/ornaments.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4">
+                    <div class="single_program program_bg_3 text-center">
+                        <div class="program_inner ">
+                            <span>
+                                23.00
+                            </span>
+                            <h3>Конец вечера</h3>
+                            <p>Наш праздник заканчивается, но мы надеемся, что теплые воспоминания о нем останутся с нами навсегда. Будем рады, если вы разделите с нами этот день до самого финала!</p>
+                            <img src="img/program_details/ornaments.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ program_details -->
+
+<br><br><br><br><br><br><br><br><br><br>
+<!-- ================ contact section start ================= -->
+<section class="location_area">
+    <div class="location_info">
+        <div class="location_inner">
+            <div class="location_top text-center">
+                    <h3>Наши контакты:</h3>
+                    <p>+7(960)236-16-30 - Максим<br>
+                            +7(921)123-85-63 - Настюша</p>
+
+        </div>
+
+</section>
+<!-- ================ contact section end ================= -->
+
+
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- footer_end -->
+
+    <!-- JS here -->
+    <script src="{{ url_for('static', filename='js/vendor/modernizr-3.5.0.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/vendor/jquery-1.12.4.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/owl.carousel.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/ajax-form.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/waypoints.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.counterup.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/imagesloaded.pkgd.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/scrollIt.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.scrollUp.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/wow.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/nice-select.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/gijgo.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.countdown.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.slicknav.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='jjs/plugins.js') }}"></script>
+
+    <!--contact js-->
+    <script src="{{ url_for('static', filename='js/contact.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.ajaxchimp.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.form.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.validate.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/mail-script.js') }}"></script>
+
+    <script src="{{ url_for('static', filename='js/main.js')}}"></script>
+
+    <script>
+        $('#clock').countdown('2025/05/22', function (event) {
+            $(this).html(event.strftime(
+                '<div class="countdown_wrap d-flex"><div  class="single_countdown"><h3>%D</h3><span>Дней</span></div><div class="single_countdown"><h3>%H</h3><span>Часов</span></div><div class="single_countdown"><h3>%M</h3><span>Минут</span></div><div class="single_countdown"><h3>%S</h3><span>Секунд</span></div></div>'
+            ));
+        });
+    </script>
+    <script>
+        function initMap() {
+            var uluru = {
+                lat: -25.363,
+                lng: 131.044
+            };
+            var grayStyles = [{
+                    featureType: "all",
+                    stylers: [{
+                            saturation: -90
+                        },
+                        {
+                            lightness: 50
+                        }
+                    ]
+                },
+                {
+                    elementType: 'labels.text.fill',
+                    stylers: [{
+                        color: '#ccdee9'
+                    }]
+                }
+            ];
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                    lat: -31.197,
+                    lng: 150.744
+                },
+                zoom: 9,
+                styles: grayStyles,
+                scrollwheel: false
+            });
+        }
+    </script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+</head>
+<body>
+<h3><a href="{{ url_for('logout') }}"> Выйти</a></h3>
+<h4>Количество записей {{amount}}</h4>
+<div style="display: block;">
+    {% for visitor in visitors %}
+    <div style="border: 1px solid #ccc; padding: 15px; border-radius: 5px; width: 100%; max-width: 400px; margin-bottom: 10px; background-color: #f9f9f9;">
+        <p><strong>Имя:</strong> {{ visitor[0] }}</p>
+        <p><strong>Email:</strong> {{ visitor[1] }}</p>
+        <p><strong>Сообщение:</strong> {{ visitor[2] }}</p>
+        <p><strong>Дата согласия:</strong> {{ visitor[3] }}</p>
+    </div>
+    {% endfor %}
+
+</div>
+
+</body>
