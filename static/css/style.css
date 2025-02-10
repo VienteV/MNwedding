@@ -1851,6 +1851,9 @@ h3 {
 .gallery_imag_9 {
   background-image: url(../img/gallery/9.jpg);
 }
+.gallery_imag_10 {
+  background-image: url(../img/gallery/10.jpg);
+}
 
 /* line 65, ../../Arafath/CL/CL september/212. Wedding/HTML/scss/_gallery.scss */
 .gallery_area {
@@ -5316,5 +5319,24 @@ h6 {
   margin-right: 10px;
   font-size: 12px;
 }
+        .color-palette {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+        }
 
+        .color-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 1px solid #fff;
+        }
+
+        @media (max-width: 600px) {
+            .color-palette {
+                flex-direction: column;
+                align-items: center;
+            }
 /*# sourceMappingURL=style.css.map */

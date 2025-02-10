@@ -14,6 +14,11 @@
         <p><strong>Email:</strong> {{ visitor[1] }}</p>
         <p><strong>Сообщение:</strong> {{ visitor[2] }}</p>
         <p><strong>Дата согласия:</strong> {{ visitor[3] }}</p>
+        <form method="post" action="/admin">
+            <input type="hidden" name="email" value="{{ visitor[1] }}">
+            <input type="text" name="cod" placeholder="введите код">
+            <button type="submit" class="boxed_btn3">Удалить</button>
+        </form>
     </div>
     {% endfor %}
 

@@ -7,6 +7,10 @@ app.secret_key = "sssdd1232feda@@@fsad"
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = "login"
+import telebot
+from telebot import types
+from telebot.types import InlineKeyboardButton
+
 
 class User(UserMixin):
     def __init__(self, username):
@@ -35,10 +39,21 @@ def index():
         if re.fullmatch(r'.+@.+\..+', email):
             con = sqlite3.connect('base.db')
             cur = con.cursor()
-            cur.execute(f"""INSERT INTO visitors(name, email, message)
-            VALUES('{name}','{email}','{message}')""")
-            con.commit()
-            con.close()
+            cur.execute(f"""SELECT * FROM visitors WHERE email = '{email}'""")
+            if cur.fetchone() != None:
+                error = "Такой email уже присутствует"
+                flash(error, 'danger')
+                return redirect('/')
+            else:
+                cur.execute(f"""INSERT INTO visitors(name, email, message)
+                VALUES('{name}','{email}','{message}')""")
+                con.commit()
+                con.close()
+                try:
+                    bot = telebot.TeleBot("7547727034:AAGvbLkIymSkrpUYHHKQzLH2fsNKOfsuKhU")
+                    bot.send_message(5856006175, f'Гости {name} присоединились к нашей свадьбе \n И оставили сообщение: \n {message}')
+                    bot.send_message(5166843708,f'Гости {name} присоединились к нашей свадьбе \n И оставили сообщение: \n {message}')
+                except:...
         else:
             error = "Введите корректный email"
             flash(error, 'danger')
@@ -53,6 +68,18 @@ def thanks():
 @app.route('/admin', methods=['GET', 'POST'])
 @login_required
 def admin():
+    if request.method == 'POST':
+        email = request.form['email']
+        cod = request.form['cod']
+
+        if cod == '4132':
+            con = sqlite3.connect('base.db')
+            cur = con.cursor()
+            cur.execute(f"""DELETE FROM visitors WHERE email='{email}'""")
+            con.commit()
+            con.close()
+            return redirect(url_for("admin"))
+
     con = sqlite3.connect('base.db')
     cur = con.cursor()
     cur.execute("""SELECT * FROM visitors""")
@@ -91,5 +118,5 @@ def logout():
     return redirect(url_for("login"))
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000)
     'app.run(debug=True)'
