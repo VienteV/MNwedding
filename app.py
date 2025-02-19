@@ -50,9 +50,9 @@ def index():
                 con.commit()
                 con.close()
                 try:
-                    bot = telebot.TeleBot("7547727034:AAGvbLkIymSkrpUYHHKQzLH2fsNKOfsuKhU")
-                    bot.send_message(5856006175, f'Гости {name} присоединились к нашей свадьбе \n И оставили сообщение: \n {message}')
-                    bot.send_message(5166843708,f'Гости {name} присоединились к нашей свадьбе \n И оставили сообщение: \n {message}')
+                    bot = telebot.TeleBot("")
+                    bot.send_message(, f'Гости {name} присоединились к нашей свадьбе \n И оставили сообщение: \n {message}')
+                    bot.send_message(,f'Гости {name} присоединились к нашей свадьбе \n И оставили сообщение: \n {message}')
                 except:...
         else:
             error = "Введите корректный email"
@@ -72,7 +72,7 @@ def admin():
         email = request.form['email']
         cod = request.form['cod']
 
-        if cod == '4132':
+        if cod == '':
             con = sqlite3.connect('base.db')
             cur = con.cursor()
             cur.execute(f"""DELETE FROM visitors WHERE email='{email}'""")
