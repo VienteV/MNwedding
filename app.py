@@ -2,17 +2,28 @@ from flask import Flask, render_template, request, redirect, flash, url_for
 import sqlite3
 import re
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
-app = Flask(__name__)
-app.secret_key = "sssdd1232feda@@@fsad"
-login_manager = LoginManager()
-login_manager.init_app(app)
-login_manager.login_view = "login"
+
 import telebot
 from telebot import types
 from telebot.types import InlineKeyboardButton
+import configparser
 
+config = configparser.ConfigParser()
+config.read('config.ini')
+telebot_token = config.get('data', 'telebot_token')
+cod = config.get('data', 'cod')
+chat_id1 = config.get('data', 'chat_id1')
+chat_id2 = config.get('data', 'chat_id2')
+secret_key = config.get('data', 'secret_key')
+
+app = Flask(__name__)
+app.secret_key = secret_key
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = "login"
 
 class User(UserMixin):
+
     def __init__(self, username):
         self.id = username
 
@@ -50,9 +61,9 @@ def index():
                 con.commit()
                 con.close()
                 try:
-                    bot = telebot.TeleBot("")
-                    bot.send_message(, f'Гости {name} присоединились к нашей свадьбе \n И оставили сообщение: \n {message}')
-                    bot.send_message(,f'Гости {name} присоединились к нашей свадьбе \n И оставили сообщение: \n {message}')
+                    bot = telebot.TeleBot(telebot_token)
+                    bot.send_message(chat_id1, f'Гости {name} присоединились к нашей свадьбе \n И оставили сообщение: \n {message}')
+                    bot.send_message(chat_id2,f'Гости {name} присоединились к нашей свадьбе \n И оставили сообщение: \n {message}')
                 except:...
         else:
             error = "Введите корректный email"
