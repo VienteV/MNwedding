@@ -44,6 +44,11 @@ def index():
                 error = "Такой email уже присутствует"
                 flash(error, 'danger')
                 return redirect('/')
+            elif (('http' in message or '//' in message or 'DELETE' in message or 'DROP' in message)
+                  or ('http' in name or '//' in name or 'DELETE' in name or 'DROP' in name)) :
+                error = "Нельзя добавлять ссылки"
+                flash(error, 'danger')
+                return redirect('/')
             else:
                 cur.execute(f"""INSERT INTO visitors(name, email, message)
                 VALUES('{name}','{email}','{message}')""")
