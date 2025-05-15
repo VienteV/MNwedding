@@ -4,3 +4,4 @@ venv/pyvenv.cfg
 __pycache__/
 *.pyc
 config.ini
+base.db
